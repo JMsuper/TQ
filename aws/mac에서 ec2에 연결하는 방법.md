@@ -29,5 +29,17 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 
 3000번 포트를 그냥 열었을 때는 통신이 되었다.
 
+방화벽 설정 참고자료 : https://webdir.tistory.com/206
+
 # 무중단 서비스를 위한 pm2
 참조링크 : https://engineering.linecorp.com/ko/blog/pm2-nodejs/
+
+# 포트포워딩 확인 명령어 및 생성, 삭제 명령어
+포트포워딩 확인 : sudo iptables -t nat -L --line-numbers
+
+# 사용자가 글을 읽었는지 유무를 나타내는 방법
+참조할 링크 : https://namastae112.blogspot.com/2021/09/socket-io-2-pc.html
+포트포워딩 확인 : sudo iptables -t nat -L --line-numbersㄱㅡㄹ
+포트포워딩 확인 : sudo iptables -t nat -L --line-numbers
+포트 삭제 : sudo iptables -t nat -D PREROUTING 1(포트포워딩에 있는 번호)
+포트 생성 : 

@@ -36,10 +36,10 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 
 # 포트포워딩 확인 명령어 및 생성, 삭제 명령어
 포트포워딩 확인 : sudo iptables -t nat -L --line-numbers
+포트 삭제 : sudo iptables -t nat -D PREROUTING 1(포트포워딩에 있는 번호)
+포트 생성 : 
 
 # 사용자가 글을 읽었는지 유무를 나타내는 방법
 참조할 링크 : https://namastae112.blogspot.com/2021/09/socket-io-2-pc.html
-포트포워딩 확인 : sudo iptables -t nat -L --line-numbersㄱㅡㄹ
-포트포워딩 확인 : sudo iptables -t nat -L --line-numbers
-포트 삭제 : sudo iptables -t nat -D PREROUTING 1(포트포워딩에 있는 번호)
-포트 생성 : 
+참조할 링크 : https://okky.kr/article/855452
+

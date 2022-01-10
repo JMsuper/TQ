@@ -26,7 +26,7 @@
 인스턴스 변수를 사용해도 좋다. 또한 읽기전용의 변수도 인스턴스 변수로 사용해도 된다.<br><br>
 
 ## 코드 설명
-소스코드는 `IoC_with_Java`와 거의 유사하다. 다만, `DaoFactory`와 `UserDaoTest`가 다르다.
+소스코드는 `IoC_with_Java`와 거의 유사하다. 다만, `DaoFactory`와 `UserDaoTest`가 다르다.<br>
 DaoFactory.java
 ```
 @Configuration // 애플리케이션 컨텍스트 또는 빈 팩토리가 사용할 설정정보라는 표시
@@ -44,9 +44,14 @@ public class DaoFactory {
 }
 ```
 코드는 동일하지만, 어노테이션을 붙인다는 점에서 차이가 있다. `@Configuration`은 애플리케이션 컨텍스트 혹은 빈 팩토리가 사용할 설정정보라는 표시이다. `@Bean`은 오브젝트 생성을 담당하는 IoC용 메소드라는 표시이다. 해당 어노테이션을 붙임으로서 스프링 컨테이너는 클라이언트가 `getBean()`을 통해 Bean 호출시, 해당 클래스와 메소드를 찾거나 빈 목록을 검색하게 된다.
-
-
-
+<br>
+UserDaoTest.java
+```
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(DaoFactory.class);
+        UserDao dao = context.getBean("userDao",UserDao.class);
+```
+`DaoFactory`로 부터 직접적으로 UserDao 객체를 받던 코드는 애플리케이션 컨텍스트에 있는 Bean을 받는 것으로 수정되었다. `userDao`는 애플리케이션 컨텍스트에 저장된 bean의 이름이며, 이는 UserDao의 객체를 리턴하는 메소드의 이름이기도 하다. 원래 `getBean()`메소드는 Object type을 리턴한다. 따라서 이를 형변환해주기 위해 2번째 파라미터로 UserDao.class를 넣어주는 것이다.
 
 
 

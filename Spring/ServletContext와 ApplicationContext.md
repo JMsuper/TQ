@@ -21,6 +21,7 @@ ServletContext와 ApplicationContext, WebApplicationContext에 대해서 혼동�
 WebApplicationContext에게 상속된다. 어플리케이션 컨텍스트는 두 가지로 나눠진다.
 
 ### WebApplicationContext
+ApplicationContext를 상속받아 getServletContext()를 추가한 WebApplicationContext 인터페이스의 구현체
 
 ### Root Application Context
 ContextLoaderListener 클래스에 의해 명시적으로 생성되는 context이다. 여러 dispatcherContext에서 공유되는

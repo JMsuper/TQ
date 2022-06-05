@@ -20,6 +20,8 @@ ServletContext와 ApplicationContext, WebApplicationContext에 대해서 혼동�
 어플리케이션 컨텍스트는 스프링에서 빈들을 관리하는 context이다. bean factory를 상속받으며,
 WebApplicationContext에게 상속된다. 어플리케이션 컨텍스트는 두 가지로 나눠진다.
 
+### WebApplicationContext
+
 ### Root Application Context
 ContextLoaderListener 클래스에 의해 명시적으로 생성되는 context이다. 여러 dispatcherContext에서 공유되는
 빈을 등록하기 위해 사용된다. Child ApplicationContext의 부모이다. 따라서 Child ApplicationContext의 빈에는
@@ -28,3 +30,8 @@ ContextLoaderListener 클래스에 의해 명시적으로 생성되는 context�
 ### Child Application Context
 dispatcherServlet에 의해 생성되는 context이다. dispatherServlet이 여러 개 있을 경우, 각각의 dispatcherServlet마다
 child ApplicationContext가 존재할 수 있다. Root Application Context의 자식이며 해당 context의 Bean에 접근할 수 있다.
+
+그런데 최근에는 DispatcherServlet을 하나만 생성해서 사용하기 때문에 굳이 Root ApplicationContext를 생성하지 않고,
+하나의 Child WebApplicationContext만 사용한다고 한다.
+
+<img src="https://github.com/JMsuper/TIL/blob/main/img/%EC%8A%A4%ED%94%84%EB%A7%81%20context%20%EA%B5%AC%EC%A1%B0.PNG">
